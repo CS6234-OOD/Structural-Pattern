@@ -16,6 +16,17 @@ public class NewJFrame extends javax.swing.JFrame {
     // set instructor or admin option
     boolean instructorOptionSelected = false;
     boolean adminOptionSelected = false;
+    boolean studentOptionSelected = false;
+    
+    instructor instructorObj = new instructor();
+    accountPriv instructorAdapterObj = new instructorAdapter(instructorObj);
+ 
+    administrator administratorObj = new administrator();
+    
+    student studentObj = new student();
+    accountPriv studentAdapterObj = new studentAdapter(studentObj);
+    
+    
     /**
      * Creates new form NewJFrame
      */
@@ -28,16 +39,18 @@ public class NewJFrame extends javax.swing.JFrame {
         jButton4.setVisible(false);
         jButton5.setVisible(false);
         
+        /*
         DefaultListModel courses = new DefaultListModel();
         
-        String [] coursesList = {"OOD", "Algorithms", "AI", "Big Data", "Discrete Math"};
+        String [] coursesList = {"Object-Oriented-Design", "Algorithms", "AI", "Big Data", "Discrete Math"};
         
         for (int i = 0; i < coursesList.length; i++)
         {
             courses.add(i, coursesList[i]);
         }
-        
-        jList1.setModel(courses);
+        */
+        CoursesList coursesList = new CoursesList();
+        jList1.setModel(coursesList.CoursesList());
         
         
     }
@@ -60,11 +73,16 @@ public class NewJFrame extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+        jButton6 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(100, 50));
 
-        jLabel1.setText("Welcome to e-learning!");
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel1.setText("Welcome!");
 
         jButton1.setText("Instructor");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -115,56 +133,97 @@ public class NewJFrame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jList1);
 
+        jButton6.setText("Student");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Online learning made simple with 'Learn All the Things\" academy!");
+
+        jButton7.setText("Clear");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        jButton8.setText("Exit");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(58, 58, 58)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(70, 70, 70)
                                 .addComponent(jButton1)
-                                .addGap(166, 166, 166))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(104, 104, 104)))
+                                .addGap(166, 166, 166)
+                                .addComponent(jButton2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel2)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton6)
+                        .addGap(116, 116, 116))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton3)
-                            .addComponent(jButton2)
                             .addComponent(jButton4)
-                            .addComponent(jButton5)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(79, Short.MAX_VALUE))
+                            .addComponent(jButton5)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton7)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton8)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addGap(22, 22, 22)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
                         .addComponent(jButton3)
                         .addGap(18, 18, 18)
                         .addComponent(jButton4)
                         .addGap(18, 18, 18)
                         .addComponent(jButton5))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jButton2)
+                                .addComponent(jButton6)))
+                        .addGap(29, 29, 29)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton7)
+                    .addComponent(jButton8))
+                .addGap(19, 19, 19))
         );
 
         pack();
@@ -182,6 +241,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jButton4.setVisible(true);
         jButton5.setVisible(true);
         
+        studentOptionSelected = false;
         instructorOptionSelected = true;
         adminOptionSelected = false;
         
@@ -197,6 +257,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jButton4.setVisible(true);
         jButton5.setVisible(true);
         
+        studentOptionSelected = false;
         instructorOptionSelected = false;
         adminOptionSelected = true;
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -207,82 +268,109 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        if (instructorOptionSelected)
+        String selectedCourse = jList1.getSelectedValue();
+        System.out.println(selectedCourse);
+        if (selectedCourse == null)
         {
-            String selectedCourse = jList1.getSelectedValue();
+            jTextField1.setText("Please select a course");
+        }
+        else if (instructorOptionSelected)
+        {
+            
             
             //reassign the course
-            jTextField1.setText("The course " + selectedCourse + " has been reassigned!");
+             jTextField1.setText(instructorAdapterObj.deleteCourse());
         }
-        else
+        else if (adminOptionSelected)
         {
-            //System.out.println("Admin option is selected");
-            
-            // get the course
-            String selectedCourse = jList1.getSelectedValue();
-
-            // delete the course        
-            jTextField1.setText("The course " + selectedCourse + " has been removed!");
+            jTextField1.setText(administratorObj.deleteCourse());
+        }
+        else 
+        {
+            jTextField1.setText(studentAdapterObj.deleteCourse());
         }
         
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-         if (instructorOptionSelected)
+        
+        String selectedCourse = jList1.getSelectedValue();
+        if (selectedCourse == null)
         {
-            String selectedCourse = jList1.getSelectedValue();
-            
-            // upload notes 
-            jTextField1.setText("The materials for course " + selectedCourse + " has been uploaded!");
+            jTextField1.setText("Please select a course");
         }
-        else
+        else if (instructorOptionSelected)
         {
-            //System.out.println("Admin option is selected");
-            
-            // get the course
-            String selectedCourse = jList1.getSelectedValue();
-
+            // upload notes 
+            jTextField1.setText(instructorAdapterObj.updateCourse());
+        }
+        else if (adminOptionSelected)
+        {
             // update the course        
-            jTextField1.setText("The course " + selectedCourse + " has been updated!");
+            jTextField1.setText(administratorObj.updateCourse());
+        }
+        else 
+        {
+            jTextField1.setText(studentAdapterObj.updateCourse());
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         
+        // get the course
+        String selectedCourse = jList1.getSelectedValue();
         // check which option 
-        if (instructorOptionSelected)
+       
+        if (selectedCourse == null)
         {
-            //System.out.println("Instructor option is selected");
-            
-            // get the course
-            String selectedCourse = jList1.getSelectedValue();
-        
-            //System.out.println(selectedCourse);
-            // cancel the course
-        
-            jTextField1.setText("The course " + selectedCourse + " has been canceled!");
+            jTextField1.setText("Please select a course");
         }
-        else
+        else if (instructorOptionSelected)
         {
-            //System.out.println("Admin option is selected");
             
-            // get the course
-            String selectedCourse = jList1.getSelectedValue();
-        
-            //System.out.println(selectedCourse);
-            // cancel the course
-        
-            jTextField1.setText("Registration for the course " + selectedCourse + " has been closed!");
+            jTextField1.setText(instructorAdapterObj.Registration());
+           
         }
-        
-        
+        else if (adminOptionSelected)
+        {   
+            // cancel the course
+            jTextField1.setText(administratorObj.Registration());
+        }
+        else 
+        {
+            jTextField1.setText(studentAdapterObj.Registration());    
+        }
 
-        
-        
-        
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        
+        jButton3.setText("Add Course");
+        jButton4.setText("Drop Course");
+        jButton5.setText("Upload File");
+        
+        jButton3.setVisible(true);
+        jButton4.setVisible(true);
+        jButton5.setVisible(true);
+        
+        instructorOptionSelected = false;
+        adminOptionSelected = false;
+        studentOptionSelected = true;
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        jTextField1.setText("");
+        
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+         System.exit(0);
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -326,7 +414,11 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
