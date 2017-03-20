@@ -1,4 +1,5 @@
 
+
 public class studentAdapter implements accountPriv {
 
     student theStudent;
@@ -8,8 +9,8 @@ public class studentAdapter implements accountPriv {
     }
     
     @Override
-    public void Registration() {
-        theStudent.addCourse();
+    public void Registration(int courseNumber) {
+        theStudent.addCourse(courseNumber);
     }
 
     @Override
@@ -18,8 +19,9 @@ public class studentAdapter implements accountPriv {
     }
 
     @Override
-    public void updateCourse() {
-        theStudent.uploadHomework();
+    public void updateCourse(String courseName) {
+        theStudent.uploadHomework(courseName);
     }
    
 }
+
