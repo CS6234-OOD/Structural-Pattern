@@ -7,25 +7,30 @@ public class testAdapter {
         student myStudentObj = new student();
         accountPriv studentAdapterObj = new studentAdapter(myStudentObj);
         
-        myAdminObj.Registration();
+        // test admin
+        myAdminObj.Registration(123);
         myAdminObj.deleteCourse();
-        myAdminObj.updateCourse();
+        myAdminObj.updateCourse("OOD");
         
-        myInstObj.cancelCourse();
+        //test instructor
+        myInstObj.cancelCourse(234);
         myInstObj.reassignCourse();
-        myInstObj.uploadMaterial();
+        myInstObj.uploadMaterial("Big Data");
         
-        instAdapterObj.Registration();
+        //test instructor with adapter
+        instAdapterObj.Registration(234);
         instAdapterObj.deleteCourse();
-        instAdapterObj.updateCourse();
+        instAdapterObj.updateCourse("Big Data");
         
-        myStudentObj.addCourse();
+        //test student
+        myStudentObj.addCourse(987);
         myStudentObj.dropCourse();
-        myStudentObj.uploadHomework();
+        myStudentObj.uploadHomework("Algorithms");
         
-        studentAdapterObj.Registration();
+        //test student with adapter
+        studentAdapterObj.Registration(987);
         studentAdapterObj.deleteCourse();
-        studentAdapterObj.updateCourse();
+        studentAdapterObj.updateCourse("Algorithms");
               
         }
         
