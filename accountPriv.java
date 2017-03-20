@@ -1,5 +1,7 @@
 public interface accountPriv { 
-    public void Registration();
-    public void updateCourse();
+        
+    public void Registration(int courseNumber);
     public void deleteCourse();
+    public void updateCourse(String courseName);
+        
 }
