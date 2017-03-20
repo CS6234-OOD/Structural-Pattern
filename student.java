@@ -1,15 +1,15 @@
 public class student {
     
-    public void addCourse() {
-        System.out.print("\n Student added course");
+    public void addCourse(int courseNumber) {
+        System.out.print("\n Student added course number " + courseNumber);
     }
     
     public void dropCourse() {
         System.out.print("\n Student deleted course");
     }
     
-    public void uploadHomework() {
-        System.out.print("\n Student uploaded homework");
+    public void uploadHomework(String courseName) {
+        System.out.print("\n Student uploaded homework for " + courseName);
     }
     
 }
