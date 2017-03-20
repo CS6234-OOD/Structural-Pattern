@@ -1,4 +1,5 @@
 
+
 public class instructorAdapter implements accountPriv {
 
     instructor theInstructor;
@@ -8,18 +9,19 @@ public class instructorAdapter implements accountPriv {
     }
     
     @Override
-    public void Registration() {
-        theInstructor.cancelCourse();
+    public void Registration(int courseNumber) {
+        theInstructor.cancelCourse(courseNumber);       
     }
 
+   
     @Override
     public void deleteCourse() {
         theInstructor.reassignCourse();
     }
 
     @Override
-    public void updateCourse() {
-        theInstructor.uploadMaterial();
+    public void updateCourse(String courseName) {
+        theInstructor.uploadMaterial(courseName);
     }
    
 }
