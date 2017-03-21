@@ -1,18 +1,20 @@
-
+package test;
 
 public class instructor  {
 
-    public void cancelCourse(int courseNumber) {
+    public String cancelCourse(int courseNumber) {
         System.out.print("\n Instructor canceled course number " + courseNumber + "for today only");
-        // return 
+        return "Instructor canceled course number " + courseNumber + " for today only";
     }
     
-    public void reassignCourse() {
+    public String reassignCourse() {
         System.out.print("\n Instructor changed");
+        return "Instructor changed";
     }
     
-    public void uploadMaterial(String courseName) {
+    public String uploadMaterial(String courseName) {
         System.out.print("\n Instructor uploaded course material for " +  courseName);
+        return "Instructor uploaded course material for " +  courseName;
     }
     
 

@@ -1,5 +1,4 @@
-
-
+package test;
 public class studentAdapter implements accountPriv {
 
     student theStudent;
@@ -9,18 +8,18 @@ public class studentAdapter implements accountPriv {
     }
     
     @Override
-    public void Registration(int courseNumber) {
-        theStudent.addCourse(courseNumber);
+    public String Registration(int courseNumber) {
+        return theStudent.addCourse(courseNumber);
     }
 
     @Override
-    public void deleteCourse() {
-        theStudent.dropCourse();
+    public String deleteCourse() {
+        return theStudent.dropCourse();
     }
 
     @Override
-    public void updateCourse(String courseName) {
-        theStudent.uploadHomework(courseName);
+    public String updateCourse(String courseName) {
+        return theStudent.uploadHomework(courseName);
     }
    
 }

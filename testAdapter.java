@@ -1,3 +1,4 @@
+package test;
 public class testAdapter {
         public static void main(String[] args){
         

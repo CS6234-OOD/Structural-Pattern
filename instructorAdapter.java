@@ -1,4 +1,4 @@
-
+package test;
 
 public class instructorAdapter implements accountPriv {
 
@@ -9,19 +9,19 @@ public class instructorAdapter implements accountPriv {
     }
     
     @Override
-    public void Registration(int courseNumber) {
-        theInstructor.cancelCourse(courseNumber);       
+    public String Registration(int courseNumber) {
+        return theInstructor.cancelCourse(courseNumber);       
     }
 
    
     @Override
-    public void deleteCourse() {
-        theInstructor.reassignCourse();
+    public String deleteCourse() {
+        return theInstructor.reassignCourse();
     }
 
     @Override
-    public void updateCourse(String courseName) {
-        theInstructor.uploadMaterial(courseName);
+    public String updateCourse(String courseName) {
+        return theInstructor.uploadMaterial(courseName);
     }
    
 }

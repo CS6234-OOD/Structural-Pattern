@@ -1,7 +1,8 @@
+package test;
 public interface accountPriv { 
         
-    public void Registration(int courseNumber);
-    public void deleteCourse();
-    public void updateCourse(String courseName);
+    public String Registration(int courseNumber);
+    public String deleteCourse();
+    public String updateCourse(String courseName);
         
 }

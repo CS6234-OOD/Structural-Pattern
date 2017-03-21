@@ -1,15 +1,19 @@
+package test;
 public class student {
     
-    public void addCourse(int courseNumber) {
+    public String addCourse(int courseNumber) {
         System.out.print("\n Student added course number " + courseNumber);
+        return "Student added course number " + courseNumber;
     }
     
-    public void dropCourse() {
+    public String dropCourse() {
         System.out.print("\n Student deleted course");
+        return "Student dropped course";
     }
     
-    public void uploadHomework(String courseName) {
+    public String uploadHomework(String courseName) {
         System.out.print("\n Student uploaded homework for " + courseName);
+        return "Student uploaded homework for " + courseName;
     }
     
 }

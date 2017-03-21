@@ -5,7 +5,11 @@
  */
 package test;
 
+import com.sun.xml.internal.ws.api.Component;
+import java.awt.Color;
+import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
+import javax.swing.JList;
 
 /**
  *
@@ -54,6 +58,7 @@ public class NewJFrame extends javax.swing.JFrame {
         
         
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -274,10 +279,9 @@ public class NewJFrame extends javax.swing.JFrame {
         {
             jTextField1.setText("Please select a course");
         }
+        
         else if (instructorOptionSelected)
         {
-            
-            
             //reassign the course
              jTextField1.setText(instructorAdapterObj.deleteCourse());
         }
@@ -296,24 +300,27 @@ public class NewJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         String selectedCourse = jList1.getSelectedValue();
+        String courseName = selectedCourse.substring(6);
         if (selectedCourse == null)
         {
             jTextField1.setText("Please select a course");
         }
+        
         else if (instructorOptionSelected)
         {
             // upload notes 
-            jTextField1.setText(instructorAdapterObj.updateCourse());
+            jTextField1.setText(instructorAdapterObj.updateCourse(courseName));
         }
         else if (adminOptionSelected)
         {
             // update the course        
-            jTextField1.setText(administratorObj.updateCourse());
+            jTextField1.setText(administratorObj.updateCourse(courseName));
         }
         else 
         {
-            jTextField1.setText(studentAdapterObj.updateCourse());
+            jTextField1.setText(studentAdapterObj.updateCourse(courseName));
         }
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -322,7 +329,10 @@ public class NewJFrame extends javax.swing.JFrame {
         // get the course
         String selectedCourse = jList1.getSelectedValue();
         // check which option 
-       
+        
+        String courseNumberString = selectedCourse.substring(0, 4);
+        int courseNumber = Integer.parseInt(courseNumberString);
+        
         if (selectedCourse == null)
         {
             jTextField1.setText("Please select a course");
@@ -330,17 +340,17 @@ public class NewJFrame extends javax.swing.JFrame {
         else if (instructorOptionSelected)
         {
             
-            jTextField1.setText(instructorAdapterObj.Registration());
+            jTextField1.setText(instructorAdapterObj.Registration(courseNumber));
            
         }
         else if (adminOptionSelected)
         {   
             // cancel the course
-            jTextField1.setText(administratorObj.Registration());
+            jTextField1.setText(administratorObj.Registration(courseNumber));
         }
         else 
         {
-            jTextField1.setText(studentAdapterObj.Registration());    
+            jTextField1.setText(studentAdapterObj.Registration(courseNumber));    
         }
 
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -423,4 +433,6 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+
 }   
